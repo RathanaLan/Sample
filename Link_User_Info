@@ -1,0 +1,107 @@
+- Gallery9:
+    Control: Gallery@2.15.0
+    Variant: Vertical
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Items: =AddColumns(Sample_List_1,User_Detail,LookUp(DNKH_OT_AssociateList,EmpID=User_ID))
+      Width: =1242
+      X: =40
+      Y: =40
+    Children:
+      - Label47:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Title
+      - Label47_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.User_ID
+            X: =182
+      - Label47_2:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.User_Detail.NameEN
+            Width: =159
+            X: =357
+      - Label47_3:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.User_Detail.NameKH
+            Width: =346
+            X: =516
+      - Label47_4:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.User_Detail.NameKH
+            Width: =346
+            X: =692
+      - TextInput4:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Default: =
+            Font: =Font.'Open Sans'
+            Height: =51
+            HoverBorderColor: =RGBA(0, 18, 107, 1)
+            HoverFill: =RGBA(186, 202, 226, 1)
+            OnSelect: =Select(Parent)
+            Width: =107
+            X: =168
+            Y: =40
+      - Label48:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =51
+            OnSelect: =Select(Parent)
+            Text: =LookUp(DNKH_OT_AssociateList,EmpID=TextInput4.Text).NameEN
+            Width: =313
+            X: =349
+            Y: =40
+      - Label48_1:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =51
+            OnSelect: =Select(Parent)
+            Text: =LookUp(DNKH_OT_AssociateList,EmpID=TextInput4.Text).Email_Address_User
+            Width: =498
+            X: =349
+            Y: =91
+      - Image12:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Image: =IfError(Office365Users.UserPhotoV2(Label48_1.Text),Blank())
+            OnSelect: =Select(Parent)
+            X: =168
+            Y: =109
+      - Label49:
+          Control: Label@2.5.1
+          Properties:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            Height: =123
+            OnSelect: =Select(Parent)
+            Text: =Office365Users.UserProfileV2(Label48_1.Text).givenName
+            Width: =692
+            X: =346
+            Y: =142
