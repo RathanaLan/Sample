@@ -1,0 +1,436 @@
+- Container30_3:
+    Control: GroupContainer@1.3.0
+    Variant: ManualLayout
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(214, 221, 224, 1)
+      BorderThickness: =1
+      DropShadow: =DropShadow.Semilight
+      Fill: =RGBA(Clr_bg.R, Clr_bg.G, Clr_bg.B, 0.12)
+      Height: =442
+      RadiusBottomLeft: =12
+      RadiusBottomRight: =12
+      RadiusTopLeft: =12
+      RadiusTopRight: =12
+      Width: =507
+      X: =40
+      Y: =23
+    Children:
+      - Gallery20_1:
+          Control: Gallery@2.15.0
+          Variant: Horizontal
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =51
+            Items: =Col_News_
+            TemplatePadding: =0
+            TemplateSize: =35
+            Width: =Self.AllItemsCount*35+5
+            X: =Parent.Width/2-Self.Width/2
+            Y: =391
+          Children:
+            - Button8_1:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =If(IfError(Index(Col_News_,Next_Item).Value,0)=ThisItem.Value,RGBA(Clr_bg.R, Clr_bg.G, Clr_bg.B, 1),RGBA(54, 176, 75, 0.15))
+                  BorderThickness: =4
+                  Color: =RGBA(255, 255, 255, 1)
+                  DisabledBorderColor: =If(Next_Item=ThisItem.Value,RGBA(54, 176, 75, 1),RGBA(54, 176, 75, 0.15))
+                  DisabledFill: =ColorFade(Self.DisabledBorderColor,50%)
+                  Fill: =ColorFade(Self.BorderColor,50%)
+                  Font: =Font.'Open Sans'
+                  Height: =20
+                  HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+                  HoverColor: =RGBA(255, 255, 255, 1)
+                  HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+                  OnSelect: =UpdateContext({Next_Item:ThisItem.Value})
+                  PressedBorderColor: =Self.Fill
+                  PressedColor: =Self.Fill
+                  PressedFill: =Self.Color
+                  RadiusBottomLeft: =100
+                  RadiusBottomRight: =100
+                  RadiusTopLeft: =100
+                  RadiusTopRight: =100
+                  Text: =
+                  Width: =20
+                  X: =10
+                  Y: =10
+      - Timer4_1:
+          Control: Timer@2.1.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =ColorFade(Self.BorderColor, 70%)
+            DisabledColor: =ColorFade(Self.Fill, 90%)
+            DisabledFill: =ColorFade(Self.Fill, 70%)
+            Duration: =2000
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnTimerEnd: "=If(IsBlank(Next_Item),UpdateContext({Next_Item:1}));UpdateContext({Next_Item:If(Next_Item<Gallery20_1.AllItemsCount,Next_Item+1,1)});Set(Clr_bg,{R:RandBetween(1,255),G:RandBetween(1,255),B:RandBetween(1,255)});\r\nSelect(Gallery8,Next_Item)                                                                                            "
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Repeat: =true
+            Start: =Stop_Timer
+            Visible: =false
+            Width: =97
+            X: =410
+            Y: =16
+      - Image12_1:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Height: =375
+            Image: =IfError(Index(Gallery20_1.AllItems,Next_Item).Img,"")
+            ImagePosition: =ImagePosition.Fill
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =496
+            X: =5
+            Y: =5
+      - Button12:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(54, 176, 75, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(56, 96, 178, 1)
+            Font: =Font.'Open Sans'
+            Height: =19
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Text: =
+            Visible: =Stop_Timer
+            Width: =90
+            X: =400
+            Y: =350
+      - Button12_1:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =ColorFade(Self.Fill, -15%)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(54, 176, 75, 1)
+            DisabledColor: =RGBA(54, 176, 75, 1)
+            DisabledFill: =RGBA(54, 176, 75, 1)
+            DisplayMode: =DisplayMode.Disabled
+            Fill: =RGBA(54, 176, 75, 1)
+            Font: =Font.'Open Sans'
+            Height: =19
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            Text: =
+            Visible: =Stop_Timer
+            Width: =Timer4_1.Value/22
+            X: =400
+            Y: =350
+      - Icon14:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Height: =34
+            Icon: =Icon.CollapseView
+            OnSelect: =UpdateContext({Stop_Timer:!Stop_Timer})
+            Width: =36
+            X: =454
+            Y: =391
+- Label4:
+    Control: Label@2.5.1
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Color: =RGBA(9, 33, 98, 1)
+      Font: =Font.'Open Sans'
+      FontWeight: =FontWeight.Bold
+      Height: =41
+      PaddingLeft: =0
+      Size: =18
+      Text: =LookUp(Gallery20_1.AllItems,Value=Next_Item).Item
+      VerticalAlign: =VerticalAlign.Top
+      Width: =507
+      X: =40
+      Y: =472
+- Label4_1:
+    Control: Label@2.5.1
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Color: =RGBA(9, 33, 98, 1)
+      Font: =Font.'Open Sans'
+      Height: =216
+      PaddingLeft: =0
+      Size: =14
+      Text: =LookUp(Gallery20_1.AllItems,Value=Next_Item).Des
+      VerticalAlign: =VerticalAlign.Top
+      Width: =507
+      X: =40
+      Y: =513
+- ButtonCanvas2_2:
+    Control: Button@0.0.44
+    Group: Group6
+    Properties:
+      BorderRadius: =12
+      DisplayMode: |-
+        =
+        If(IsBlank(TextInputCanvas1_1.Value)||IsBlank(TextInputCanvas1.Value)||IsBlank(TextInputCanvas1_2.Value), DisplayMode.Disabled,DisplayMode.Edit)
+      Height: =53
+      OnSelect: |-
+        =If(Type_Info="New",
+        Collect(Col_News_,{Item:TextInputCanvas1_1.Value,Des:TextInputCanvas1.Value,Img:TextInputCanvas1_2.Value,Value:Gallery20_1.AllItemsCount+1}),
+        UpdateIf(Col_News_,Value=Next_Item,{Item:TextInputCanvas1_1.Value,Des:TextInputCanvas1.Value,Img:TextInputCanvas1_2.Value}));
+      Text: =If(Type_Info,"Add","Update")
+      X: =1231
+      Y: =364
+- TextInputCanvas1:
+    Control: TextInput@0.0.53
+    Group: Group6
+    Properties:
+      Height: =53
+      Mode: ='TextInputCanvas.Mode'.Multiline
+      Value: =If(Type_Info="New","",LookUp(Gallery20_1.AllItems,Value=Next_Item).Des)
+      Width: =701
+      X: =625
+      Y: =171
+- TextInputCanvas1_1:
+    Control: TextInput@0.0.53
+    Group: Group6
+    Properties:
+      Height: =53
+      Value: =If(Type_Info="New","",LookUp(Gallery20_1.AllItems,Value=Next_Item).Item)
+      Width: =702
+      X: =625
+      Y: =65
+- TextInputCanvas1_2:
+    Control: TextInput@0.0.53
+    Group: Group6
+    Properties:
+      Height: =53
+      Mode: ='TextInputCanvas.Mode'.Multiline
+      Value: =If(Type_Info="New","",LookUp(Gallery20_1.AllItems,Value=Next_Item).Img)
+      Width: =701
+      X: =625
+      Y: =274
+- ButtonCanvas2_3:
+    Control: Button@0.0.44
+    Group: Group6
+    Properties:
+      BorderRadius: =12
+      Height: =53
+      OnSelect: =UpdateContext({Type_Info:"New"});Reset(TextInputCanvas1_1);Reset(TextInputCanvas1);Reset(TextInputCanvas1_2)
+      Text: ="New"
+      X: =1072
+      Y: =364
+- Label31:
+    Control: Label@2.5.1
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Font: =Font.'Open Sans'
+      Text: ="Title"
+      Width: =141
+      X: =625
+      Y: =23
+- Label31_1:
+    Control: Label@2.5.1
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Font: =Font.'Open Sans'
+      Text: ="Description"
+      Width: =141
+      X: =625
+      Y: =131
+- Label31_2:
+    Control: Label@2.5.1
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Font: =Font.'Open Sans'
+      Text: ="Image link"
+      Width: =141
+      X: =625
+      Y: =234
+- ButtonCanvas3:
+    Control: Button@0.0.44
+    Group: Group6
+    Properties:
+      BorderRadius: =12
+      Height: =52
+      OnSelect: |-
+        =Set(Clr_bg,{R:RandBetween(1,255),G:RandBetween(1,255),B:RandBetween(1,255)});
+        UpdateContext({Next_Item:1});
+        ClearCollect(Col_News_,[{Item:"Procurement and Maintenance",Des:"GA is responsible for procuring office supplies, equipment, and services. This includes everything from stationery to office furniture, and even maintenance of facilities like air conditioners and electrical systems",Img:"https://i.pinimg.com/736x/25/a3/80/25a380a1939efa6f94d9d7b1ec623ee8.jpg",Value:1},
+        {Item:"Facility Management",Des:"They ensure that the office environment is clean, safe, and well-maintained. This includes managing cleaning services, security, and other outsourced services2.",Img:"https://th.bing.com/th/id/OIP.dza-NWeAu23_mQpB31Ya3AHaEc?w=959&h=576&rs=1&pid=ImgDetMain",Value:2}
+        ,{Item:"Coordination with Other Departments",Des:"GA works closely with other departments to understand their needs and plan budgets for procurement and maintenance2.",Img:"https://imgc.artprintimages.com/img/print/egidio-antonaccio-blue-ridge-falls_u-l-q1ipyf30.jpg?artHeight=550&artPerspective=n&artWidth=550&background=fbfbfb",Value:3}
+        ,{Item:"Vendor Management:",Des:"They maintain good relationships with suppliers, handle contracts, ensure timely payments, and address any issues that arise2.",Img:"https://th.bing.com/th/id/OIP.TIV1e-aYC3r68iZYKLq0wAHaJQ?w=1024&h=1280&rs=1&pid=ImgDetMain",Value:4}
+        ,{Item:"Operational Support",Des:"GA supports the overall operational activities of the company, ensuring that everything runs smoothly and efficiently3.",Img:"https://seoresellerscanada.ca/wp-content/uploads/2023/06/website-audit-and-analysis-image-01.png",Value:5}
+        ,{Item:"GA roles might",Des:"GA roles might be combined with HR or purchasing departments12. This position is essential for maintaining a productive and efficient work environment.",Img:"https://th.bing.com/th/id/OIP.GELKQ4d2ogvLPHMtaI4UygHaHa?rs=1&pid=ImgDetMain",Value:6}])
+      Text: ="Reset Value"
+      Width: =118
+      X: =625
+      Y: =365
+- Icon13:
+    Control: Classic/Icon@2.5.0
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Color: =RGBA(0, 18, 107, 1)
+      Height: =32
+      Icon: =Icon.Edit
+      OnSelect: =UpdateContext({Type_Info:"Edit"});UpdateContext({Stop_Timer:false})
+      Width: =40
+      X: =1285
+      Y: =10
+- Icon13_1:
+    Control: Classic/Icon@2.5.0
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Color: =RGBA(0, 18, 107, 1)
+      Height: =32
+      Icon: =Icon.Trash
+      OnSelect: =RemoveIf(Col_News_,Value=LookUp(Gallery20_1.AllItems,Value=Next_Item).Value);UpdateContext({Next_Item:Gallery20_1.AllItemsCount})
+      Width: =45
+      X: =1231
+      Y: =12
+- Icon15:
+    Control: Classic/Icon@2.5.0
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Color: =RGBA(0, 18, 107, 1)
+      Icon: =Icon.ChevronLeft
+      OnSelect: =UpdateContext({Next_Item:If(Next_Item=1,Gallery20_1.AllItemsCount,Next_Item-1)});Select(Gallery8,Next_Item)
+      PaddingBottom: =8
+      PaddingLeft: =8
+      PaddingRight: =8
+      PaddingTop: =8
+      Width: =40
+      Y: =212
+- Icon16:
+    Control: Classic/Icon@2.5.0
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Color: =RGBA(0, 18, 107, 1)
+      Icon: =Icon.ChevronRight
+      OnSelect: =UpdateContext({Next_Item:If(Next_Item=Gallery20_1.AllItemsCount,1,Next_Item+1)});Select(Gallery8,Next_Item)
+      PaddingBottom: =8
+      PaddingLeft: =8
+      PaddingRight: =8
+      PaddingTop: =8
+      Width: =40
+      X: =547
+      Y: =212
+- Gallery8:
+    Control: Gallery@2.15.0
+    Variant: VariableHeight
+    Group: Group6
+    Properties:
+      BorderColor: =RGBA(0, 18, 107, 1)
+      Height: =304
+      Items: =Col_News_
+      ShowNavigation: =true
+      ShowScrollbar: =false
+      TemplateSize: =101
+      Width: =703
+      X: =625
+      Y: =442
+    Children:
+      - Label41:
+          Control: Label@2.5.1
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Bold
+            Height: =27
+            OnSelect: =Select(Parent)
+            Text: =ThisItem.Item
+            Width: =668
+            X: =67
+      - Label41_1:
+          Control: Label@2.5.1
+          Properties:
+            AutoHeight: =true
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Font: =Font.'Open Sans'
+            FontWeight: =FontWeight.Lighter
+            Height: =27
+            OnSelect: =Select(Parent)
+            Size: =12
+            Text: =ThisItem.Des
+            Width: =438
+            X: =65
+            Y: =19
+      - Image6:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            BorderThickness: =1
+            Fill: =RGBA(0, 0, 0, 1)
+            Height: =68
+            Image: =ThisItem.Img
+            OnSelect: =Select(Parent)
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            Width: =65
+      - Icon13_2:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Height: =49
+            Icon: =Icon.Edit
+            OnSelect: =UpdateContext({Type_Info:"Edit"});UpdateContext({Stop_Timer:false});UpdateContext({Next_Item:ThisItem.Value})
+            Width: =34
+            X: =640
+      - Icon13_3:
+          Control: Classic/Icon@2.5.0
+          Properties:
+            BorderColor: =RGBA(0, 18, 107, 1)
+            Color: =RGBA(0, 18, 107, 1)
+            Height: =49
+            Icon: =Icon.Trash
+            OnSelect: =Remove(Col_News_,ThisItem)
+            Width: =34
+            X: =590
+      - Button8_2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =If(IfError(Index(Col_News_,Next_Item).Value,0)=ThisItem.Value,RGBA(Clr_bg.R, Clr_bg.G, Clr_bg.B, 1),RGBA(54, 176, 75, 0.15))
+            BorderThickness: =4
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =If(Next_Item=ThisItem.Value,RGBA(54, 176, 75, 1),RGBA(54, 176, 75, 0.15))
+            DisabledFill: =ColorFade(Self.DisabledBorderColor,50%)
+            Fill: =ColorFade(Self.BorderColor,50%)
+            Font: =Font.'Open Sans'
+            Height: =20
+            HoverBorderColor: =ColorFade(Self.BorderColor, 20%)
+            HoverColor: =RGBA(255, 255, 255, 1)
+            HoverFill: =ColorFade(RGBA(56, 96, 178, 1), -20%)
+            OnSelect: =UpdateContext({Next_Item:ThisItem.Value})
+            PressedBorderColor: =Self.Fill
+            PressedColor: =Self.Fill
+            PressedFill: =Self.Color
+            RadiusBottomLeft: =100
+            RadiusBottomRight: =100
+            RadiusTopLeft: =100
+            RadiusTopRight: =100
+            Text: =
+            Width: =20
