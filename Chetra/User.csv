@@ -1,0 +1,8 @@
+﻿"ID","Email","Password","Username","First_Name","Last_Name","Role","Request_Reason","Combine_Name","Phone_Number","Status","User_ID","DOB","Created_At","Updated_At","Gender"
+"21","samnang123@gmail.com","123456789",,"Samnang","Hok","Staff",,"Samnang    Hok","12 458 635","true",,"05/05/1999",,,"Male"
+"22","kakchhit@gmail.com","123456789",,"Kak","Chharng Chhit","Admin",,"Kak    Chharng Chhit","12 458 612","true",,"05/05/1999",,,"Male"
+"23","fsfsf@gmail.com","123456789",,"gsg","shs","Admin",,"gsg    shs","10 661 200","true",,"07/05/2025",,,"Male"
+"24","testtext@gmail.com","1234567890",,"Test","Text","Admin",,"Test    Text","10 000 033","true",,"16/05/2025",,,"Female"
+"25","testta@gmail.com","1234567890",,"Test","ta","Admin",,"Test    ta","236 665 222",,,"16/05/2025",,,"Female"
+"26","sochetra.hok77@gmail.com","123456789",,"Hok","Sochetra","Admin",,"Hok    Sochetra","10 661 890","true",,"16/05/2025",,,"Male"
+"29","chetrafc60@gmail.com","1234567",,"Chetra","Hok","Admin",,"Chetra    Hok","61 563 848","true",,"15/05/2025",,,"Male"
